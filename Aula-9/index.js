@@ -62,9 +62,9 @@ o retorno de `calculator`.
 por parâmetro, INVOCADA, e passando a ela por parâmetro os dois valores
 que foram passadas para a primeira função `calculator`.
 */
-  function calculator(a, b) {
+  function calculator(numberA, numberB) {
     return function (callback) {
-      return callback(a, b);
+      return callback(numberA, numberB);
     };
   }
 
@@ -103,6 +103,16 @@ criando a função de `callback` que faz o cálculo para subração, multiplica�
 divisão e módulo (resto de divisão), conforme a função utilizada.
 As suas respostas devem estar abaixo dos `console.log` referentes à cada
 chamada.
+*/
+
+  /*
+    A mesma coisa 
+    console.log('O resultado da soma é:')
+        sum(
+            function(number1, number2) {
+                return number1 + number2
+            }
+        )
 */
   console.log(
     `O resultado da subtração é: ${subtraction(
