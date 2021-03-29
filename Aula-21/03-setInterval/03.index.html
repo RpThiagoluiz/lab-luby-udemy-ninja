@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>setTimeout vs setInterval in counter</p>
+    <h3>setTimeout</h3>
+    <small
+      >Rodar infinito, setTimeout quando coloca um evento no event loop, ele diz
+      q 1 segundo depois ele coloca o timer dentro do eventloop do JS. Se tiver
+      algo rodando ele coloca o timer depois. So coloca depois q o primeiro ja
+      foi executado</small
+    >
+    <h3>setInterval</h3>
+    <small
+      >Intervall vai lotar o EventLoop do Js, com evento asyncrono, msm vc
+      parando ele. Se aidna existi funcoes de callback dentro do eventLoop, elas
+      seram lancadas msm com a condicao parando a execucao da function.</small
+    >
+    <script src="./03.index.html"></script>
+  </body>
+</html>
