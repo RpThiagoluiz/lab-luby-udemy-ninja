@@ -23,30 +23,79 @@ multiplicação (x), então no input deve aparecer "1+2x".
 input;
 - Ao pressionar o botão "CE", o input deve ficar zerado.
 */
-  //html - check
-  //css - check
-  //Inputs.value - Check
 
   //InputVisor
-  const $InputVisor = doc.querySelector('[data-js="input-result"]');
-
-  //Operator Buttons [data-js="button-start"]
+  let $InputVisor = doc.querySelector('[data-js="input-result"]');
+  //Action Buttons
   const $buttonCE = doc.querySelector('[data-js="button-ce"]');
-  const $buttonIgual = doc.querySelector('[data-js="button-igual"]');
-  const $buttonSum = doc.querySelector('[data-js="button-sum"]');
-  const $buttonSub = doc.querySelector('[data-js="button-subs"]');
-  const $buttonDivision = doc.querySelector('[data-js="button-division"]');
-  const $buttonMult = doc.querySelector('[data-js="button-mult"]');
-
+  const $buttonIgual = doc.querySelector('[data-js="button-equal"]');
+  const $buttonsOperators = doc.querySelectorAll('[data-js="button-operator"]');
   //Number
-  const $buttonOne = doc.querySelector('[data-js="button-one"]');
-  const $buttonTwo = doc.querySelector('[data-js="button-two"]');
-  const $buttonThree = doc.querySelector('[data-js="button-three"]');
-  const $buttonFour = doc.querySelector('[data-js="button-four"]');
-  const $buttonFive = doc.querySelector('[data-js="button-five"]');
-  const $buttonSix = doc.querySelector('[data-js="button-six"]');
-  const $buttonSeven = doc.querySelector('[data-js="button-seven"]');
-  const $buttonEight = doc.querySelector('[data-js="button-eight"]');
-  const $buttonNine = doc.querySelector('[data-js="button-nine"]');
-  const $buttonZero = doc.querySelector('[data-js="button-zero"]');
+  const $buttonsNumbers = doc.querySelectorAll('[data-js="button-number"]');
+
+  function handleClickNumber() {
+    $InputVisor.value += this.value;
+  }
+
+  function checkLastItemIsOperator(number) {
+    const operators = ["+", "-", "÷", "x"];
+    let lastItem = number.split("").pop();
+    return operators.some((operator) => operator === lastItem);
+  }
+
+  function handleClearVisor() {
+    $InputVisor.value = 0;
+  }
+
+  function removeLastOperatorIfIsOperator(number) {
+    if (checkLastItemIsOperator(number)) {
+      return number.slice(0, -1);
+    }
+    return number;
+  }
+
+  function handleClickOperator() {
+    $InputVisor.value = removeLastOperatorIfIsOperator($InputVisor.value);
+    $InputVisor.value += this.value;
+  }
+
+  function handleClickEqual() {
+    $InputVisor.value = removeLastOperatorIfIsOperator($InputVisor.value);
+    let visorValue = $InputVisor.value.match(/\d+[+x÷-]?/g);
+    let result = visorValue.reduce((acc, actual) => {
+      let firstValue = acc.slice(0, -1);
+      let lastValue = removeLastOperatorIfIsOperator(actual);
+      let operator = acc.split("").pop();
+      let lastOperator = checkLastItemIsOperator(actual)
+        ? actual.split("").pop()
+        : false;
+
+      switch (operator) {
+        //"+", "-", "÷", "x"
+        case "+":
+          return Number(firstValue) + Number(lastValue) + lastOperator;
+        case "-":
+          return Number(firstValue) - Number(lastValue) + lastOperator;
+        case "÷":
+          return Number(firstValue) / Number(lastValue) + lastOperator;
+        case "x":
+          return Number(firstValue) * Number(lastValue) + lastOperator;
+        default:
+          break;
+      }
+    });
+    $InputVisor.value = Math.round(result); //Nao quebrar a calc com numeros com virgula.
+  }
+
+  //Array Spreads
+  Array.prototype.forEach.call($buttonsNumbers, (button) => {
+    button.addEventListener("click", handleClickNumber, false);
+  });
+  Array.prototype.forEach.call($buttonsOperators, (button) => {
+    button.addEventListener("click", handleClickOperator, false);
+  });
+
+  //Single item
+  $buttonCE.addEventListener("click", handleClearVisor, false);
+  $buttonIgual.addEventListener("click", handleClickEqual, false);
 })(window, document);

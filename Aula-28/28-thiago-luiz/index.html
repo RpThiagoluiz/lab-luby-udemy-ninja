@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <title>CeP</title>
+  </head>
+  <body>
+    <!--
+    No HTML:
+  - Crie um formulário com um input de texto que receberá um CEP e um botão
+  de submit;
+  - Crie uma estrutura HTML para receber informações de endereço:
+  "Logradouro, Bairro, Estado, Cidade e CEP." Essas informações serão
+  preenchidas com os dados da requisição feita no JS.
+  - Crie uma área que receberá mensagens com o status da requisição:
+  "Carregando, sucesso ou erro."
+  -->
+
+    <div class="container">
+      <header>
+        <form action="">
+          <label for="cep">Cep</label>
+          <input type="text" name="cep" data-js="input-req-cep" />
+          <button type="submit" data-js="button-submit">Pesquisar CEP</button>
+        </form>
+      </header>
+      <main>
+        <div>
+          <label> Logradouro </label>
+          <input type="text" data-js="input-resp-street" disable />
+        </div>
+        <div>
+          <label>Bairro</label>
+          <input type="text" data-js="input-resp-district" disable />
+        </div>
+        <div>
+          <label>Estado</label>
+          <input type="text" data-js="input-resp-state" disable />
+        </div>
+        <div>
+          <label>Cidade</label>
+          <input type="text" data-js="input-resp-city" disable />
+        </div>
+        <div>
+          <label>CEP</label>
+          <input type="text" data-js="input-resp-code" disable />
+        </div>
+      </main>
+    </div>
+    <footer data-js="footer-msg">Status da pesquisa</footer>
+    <script src="./index.js"></script>
+  </body>
+</html>

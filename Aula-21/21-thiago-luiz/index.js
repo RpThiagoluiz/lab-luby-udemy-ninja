@@ -24,7 +24,7 @@ dado ao elemento HTML deve definir o que o elemento é ou o que ele faz.
 
   $buttonStart.addEventListener("click", () => {
     handleTimer = setInterval(() => {
-      $timer.value++;
+      $timer.value--;
     }, 1000);
   });
 

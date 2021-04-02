@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jura:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <title>25-freeToPlay</title>
+  </head>
+  <body>
+    <header>
+      <img src="./logo.svg" alt="Pomodoro logo" />
+      <h1>Pomodoro Timer!</h1>
+    </header>
+
+    <section data-js="section-timer" class="section-timer">
+      <div class="timer-data">
+        <h4 data-js="minutes">25</h4>
+        <span>:</span>
+        <h4 data-js="seconds">00</h4>
+      </div>
+      <div class="button-container">
+        <button data-js="button=start">
+          <img class="button-img" src="./play.svg" alt="Play Button" />
+        </button>
+        <button data-js="button=stop">
+          <img class="button-img" src="./stop.svg" alt="Stop Button" />
+        </button>
+        <button data-js="button=reset">
+          <img class="button-img" src="./reset.svg" alt="Reset Button" />
+        </button>
+      </div>
+    </section>
+
+    <script src="./index.js"></script>
+  </body>
+</html>
