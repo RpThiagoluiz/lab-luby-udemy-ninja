@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles/styles.css" />
+    <title>brabo!</title>
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1 data-js="header-h1"></h1>
+        <span data-js="header-span"></span>
+      </header>
+      <div class="content">
+        <form
+          action=""
+          data-js="form-register"
+          onsubmit="form.handlesubmit(event)"
+        >
+          <ul>
+            <li>
+              <label for="">Imagem do carro</label>
+              <input type="url" data-js="car-image" />
+            </li>
+            <li>
+              <label for="">Marca / Modelo</label>
+              <input type="text" data-js="car-brand-model" />
+            </li>
+            <li>
+              <label for="">Ano</label>
+              <input type="text" data-js="car-year" />
+            </li>
+            <li>
+              <label for="">Placa</label>
+              <input type="text" data-js="car-plate" />
+            </li>
+            <li>
+              <label for="">Cor</label>
+              <input type="text" data-js="car-color" />
+            </li>
+          </ul>
+          <button type="submit" data-js="form-button">Cadastrar</button>
+        </form>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Imagem do Carro</th>
+              <th>Marca / Modelo</th>
+              <th>Ano</th>
+              <th>Placa</th>
+              <th>Cor</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+          <tbody data-js="table-data-car"></tbody>
+        </table>
+      </div>
+    </main>
+    <script src="./scripts/DOM.js"></script>
+    <script src="./scripts/index.js"></script>
+  </body>
+</html>
