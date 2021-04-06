@@ -4,10 +4,10 @@ import bodyParser from "body-parser";
 
 const app = express();
 
-app.use(cors());
-app.use(express.json());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cors());
+app.use(express.json());
 
 const carsArray = [
   {
@@ -29,15 +29,15 @@ const carsArray = [
 ];
 
 //App Routes
-app.get("/car", (req, res) => {
-  res.json(carsArray);
+app.get("/car", (request, response) => {
+  response.json(carsArray);
 });
 
-app.post("/car", (req, res) => {
-  const { image, brandModel, year, plate, color } = req.body;
-  const carPost = { image, brandModel, year, plate, color };
-  carsArray.push(carPost);
-  res.json(carPost);
+app.post("/car", (request, response) => {
+  const { image, brandModel, year, plate, color } = request.body;
+  const carRequest = { image, brandModel, year, plate, color };
+  carsArray.push(carRequest);
+  return response.json(carsArray);
 });
 
 app.listen(3000, () => {
