@@ -5,6 +5,7 @@ const user = {
   purchases: [],
 };
 const history1 = [];
+//da direita para a esquerda
 const compose = (f, g) => (...args) => f(g(...args));
 const pipe = (f, g) => (...args) => g(f(...args));
 const purchaseItem = (...fns) => fns.reduce(compose);
@@ -45,6 +46,7 @@ function buyItem(user) {
   const itemsInCart = user.cart;
   return Object.assign({}, user, { purchases: itemsInCart });
 }
+
 function emptyUserCart(user) {
   history1.push(user);
   return Object.assign({}, user, { cart: [] });
