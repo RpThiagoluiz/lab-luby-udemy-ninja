@@ -1,0 +1,28 @@
+class authenticationError extends Error {
+  constructor(message) {
+    super(message);
+    this.name = "ValidationError";
+    this.message = message;
+  }
+}
+
+class PermissionError extends Error {
+  constructor(message) {
+    super(message);
+    this.name = "PermissionError";
+    this.message = message;
+    this.favouriteSnack = "grapes";
+  }
+}
+
+class DatabaseError extends Error {
+  constructor(message) {
+    super(message);
+    this.name = "DatabaseError";
+    this.message = message;
+  }
+}
+
+throw new authenticationError("Oppse");
+throw new PermissionError("A permission error");
+throw new DatabaseError("A database error");
